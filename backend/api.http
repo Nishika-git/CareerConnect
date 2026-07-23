@@ -1,0 +1,88 @@
+POST http://localhost:9080/register HTTP/1.1
+content-Type: application/json
+
+{
+  "name": "Ankit ",
+  "email": "ankit@gmail.com",
+  "username": "ankit",
+  "password": "ankit"
+}
+
+###
+
+POST http://localhost:9080/login HTTP/1.1
+content-Type: application/json
+
+{
+  "email": "rupali@gmail.com",
+  "password": "rupali"
+}
+
+###
+
+GET http://localhost:9080/get_posts HTTP/1.1
+
+###
+
+POST http://localhost:9080/comment
+content-Type: application/json
+{
+  post_id: "6a4f58deb040df4ee2414851",
+  "comment_text": "This is a comment",
+  "token" : "dcdfb5919e9c7b45c009c6855997d8facf8ffd2139ac7a4b3b1c28faa5be9cd0"
+}
+
+###
+
+GET http://localhost:9080/get_comments
+Content-Type: application/json
+{
+   "post_id" : "6a4f58deb040df4ee2414851"
+}
+
+
+###
+
+GET http://localhost:9080/get_user_and_profile
+content-Type: application/json
+
+{
+  "token": "dcdfb5919e9c7b45c009c6855997d8facf8ffd2139ac7a4b3b1c28faa5be9cd0"
+}
+
+
+
+###
+
+
+POST http://localhost:9080/update_profile_data
+Content-Type: application/json
+
+{
+    "token": "894ad909563b7899d075e2a7ea0066e335182ee797aceba2c3c9c706643bbe63",
+    "bio":"anything",
+    "currentPost":"CTO",
+    "education":[
+      {
+        "school":"IPS",
+        "degree":"BCA",
+        "fieldOfStudy": "2022-2025"
+      }
+    ],
+    "pastWork":[
+      {
+      "company":"Microsoft",
+      "position":"CTO",
+      "years": "2+"
+      }
+    ]
+   
+     
+}
+
+
+###
+
+
+
+GET http://localhost:9080/user/get_all_users
