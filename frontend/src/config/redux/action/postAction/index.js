@@ -1,5 +1,6 @@
 import clientServer from "@/config";
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, isAsyncThunkAction } from "@reduxjs/toolkit";
+import { create } from "axios";
 
 
 export const getAllPosts = createAsyncThunk(
@@ -26,14 +27,14 @@ export const createPost = createAsyncThunk(
             formData.append('token', localStorage.getItem('token'))
             formData.append('media', file)
             formData.append('body', body)
-            
+
             const response = await clientServer.post("/post", formData, {
                 headers: {
-                    'Content-Type' : 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data'
                 }
             });
 
-            if(response.status === 200){
+            if (response.status === 200) {
                 return thunkAPI.fulfillWithValue("Post Uploaded")
             } else {
                 return thunkAPI.rejectWithValue("Post not uploaded")
@@ -43,6 +44,101 @@ export const createPost = createAsyncThunk(
 
         } catch (error) {
             return thunkAPI.rejectWithValue(error.response.data)
+        }
+    }
+)
+
+export const deletePost = createAsyncThunk(
+    "post/deletePost",
+    async (post_id, thunkAPI) => {
+        try {
+            const response = await clientServer.delete("/delete_post", {
+                data: {
+                    token: localStorage.getItem("token"),
+                    post_id: post_id.post_id
+                }
+            });
+            return thunkAPI.fulfillWithValue(response.data)
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data)
+        }
+    }
+)
+
+export const delete_comment_of_user = createAsyncThunk(
+    "post/delete_comment_of_user",
+    async (postComment_id, thunkAPI) => {
+        try {
+            const response = await clientServer.delete("/delete_comment", {
+                data: {
+                    token: localStorage.getItem("token"),
+                    postComment_id: postComment_id
+                }
+            });
+             return thunkAPI.fulfillWithValue({
+                deletedCommentId: postComment_id
+            });
+            return thunkAPI.fulfillWithValue(response.data)
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data)
+        }
+    }
+)
+
+export const incrementPostLike = createAsyncThunk(
+    "post/incrementLike",
+    async (post, thunkAPI) => {
+        try {
+            const response = await clientServer.post(`increment_post_like`, {
+                post_id: post.post_id
+            })
+
+            return thunkAPI.fulfillWithValue(response.data)
+
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.response.data)
+        }
+    }
+
+)
+
+export const getAllComments = createAsyncThunk(
+    "post/getAllComments",
+    async (postData, thunkAPI) => {
+        try {
+            const response = await clientServer.get(`/get_comments`, {
+                params: {
+                    post_id: postData.post_id
+                }
+            });
+            return thunkAPI.fulfillWithValue({
+                comments: response.data,
+                post_id: postData.post_id
+            })
+        }
+    catch(error){
+        return thunkAPI.rejectWithValue("Something went wrong")
+
+    }
+    }
+)
+
+export const postComment = createAsyncThunk(
+    "post/postComment",
+    async(commentData, thunkAPI) =>{
+        try {
+            console.log({
+                post_id:commentData.post_id,
+                body: commentData.body
+            })
+            const response = await clientServer.post("/comment", {
+                token: localStorage.getItem("token"),
+                post_id: commentData.post_id,
+                commentBody: commentData.body
+            });
+            return thunkAPI.fulfillWithValue(response.data)
+        } catch (error) {
+            return thunkAPI.rejectWithValue("Something went wrong")
         }
     }
 )

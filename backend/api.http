@@ -20,15 +20,23 @@ content-Type: application/json
 
 ###
 
-GET http://localhost:9080/get_posts HTTP/1.1
+GET http://localhost:9080/posts HTTP/1.1
 
 ###
+ 
+DELETE   http://localhost:9080/delete_post HTTP/1.1
+###
 
-POST http://localhost:9080/comment
+
+DELETE   http://localhost:9080/delete_comment_of_user HTTP/1.1
+###
+
+
+POST http://localhost:9080/comment HTTP/1.1
 content-Type: application/json
 {
-  post_id: "6a4f58deb040df4ee2414851",
-  "comment_text": "This is a comment",
+  "post_id": "6a4f58deb040df4ee2414851",
+  "commentBody": "This is a comment",
   "token" : "dcdfb5919e9c7b45c009c6855997d8facf8ffd2139ac7a4b3b1c28faa5be9cd0"
 }
 
@@ -59,8 +67,8 @@ POST http://localhost:9080/update_profile_data
 Content-Type: application/json
 
 {
-    "token": "894ad909563b7899d075e2a7ea0066e335182ee797aceba2c3c9c706643bbe63",
-    "bio":"anything",
+    "token": "7f10c535809a19a43d13b07d7cb319d09dd6e2a5904cd907a0dfb4f72e27a696",
+    "bio":"MERN stack developer || Frontend developer ",
     "currentPost":"CTO",
     "education":[
       {
@@ -80,9 +88,10 @@ Content-Type: application/json
      
 }
 
+###
+
+GET http://localhost:9080/user/get_all_users
 
 ###
 
-
-
-GET http://localhost:9080/user/get_all_users
+GET http://localhost:9080/user/getMyConnectionsRequest HTTP/1.1

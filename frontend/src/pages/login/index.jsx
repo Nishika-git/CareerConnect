@@ -17,10 +17,10 @@ function LoginComponent() {
     const dispatch = useDispatch();
 
     const [userLoginMethod, setUserLoginMethod] = useState(false);
-    const [name, setName] = useState(" ");
-    const [username, setUsername] = useState(" ");
-    const [email, setEmailAddress] = useState(" ");
-    const [password, setPassword] = useState(" ");
+    const [name, setName] = useState("");
+    const [username, setUsername] = useState("");
+    const [email, setEmailAddress] = useState("");
+    const [password, setPassword] = useState("");
 
 
     useEffect(() => {

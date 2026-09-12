@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { loginUser } from "../../action/authAction"
+import { getConnectionsRequest, getMyConnectionsRequests, loginUser } from "../../action/authAction"
 import { registerUser } from "../../action/authAction"
 import { getAllUsers } from "../../action/authAction"
 import { getAboutUser } from "../../action/authAction"
@@ -30,10 +30,10 @@ const authSlice = createSlice({
         emptyMessage: (state) => {
             state.message = ""
         },
-        setTokenIsThere: (state) =>{
+        setTokenIsThere: (state) => {
             state.isTokenThere = true
         },
-        setTokenIsNotThere: (state) =>{
+        setTokenIsNotThere: (state) => {
             state.isTokenThere = false
         }
     },
@@ -79,11 +79,25 @@ const authSlice = createSlice({
                 state.profileFetched = true;
                 state.user = action.payload;
             })
-            .addCase(getAllUsers.fulfilled, (state, action) =>{
+            .addCase(getAllUsers.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isError = false;
                 state.all_profiles_fetched = true;
                 state.all_users = action.payload.profiles;
+            })
+            .addCase(getConnectionsRequest.fulfilled, (state, action) => {
+                state.connections = action.payload
+            })
+            .addCase(getConnectionsRequest.rejected, (state, action) => {
+                state.connections = Array.isArray(action.payload)
+                    ? action.payload
+                    : [];
+            })
+            .addCase(getMyConnectionsRequests.fulfilled, (state, action) => {
+                state.connectionRequest = action.payload
+            })
+            .addCase(getMyConnectionsRequests.rejected, (state, action) => {
+                state.message = action.payload
             })
     }
 })

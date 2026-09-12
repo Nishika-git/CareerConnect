@@ -46,4 +46,27 @@
     padding-block: 0.6rem;
     border-radius: 20px;
 }
+.mainContainer_right img{
+        width: 100%;
+        height: 100%;
+    }
 
+
+@media screen and (max-width:600px){
+    .mainContainer{
+        flex-direction: column;
+        gap:2rem;
+        
+    }
+    .mainContainer_left{
+        flex: 1;
+       
+    }
+    .mainContainer_right{
+        flex: 1;
+    }
+    .mainContainer_right img{
+        width: 100%;
+        height: 80%;
+    }
+}

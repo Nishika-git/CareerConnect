@@ -16,6 +16,7 @@
     align-items: start;
     gap: 0.6rem;
     max-width: 20%;
+    border-right: 1px solid rgb( 222, 222, 222);
 
 }
 
@@ -43,10 +44,54 @@
 }
 
 .homeContainer_feedContainer {
-    width: 100%;
+    padding-inline: 0.8rem;
 }
 
 .homeContainer_extraContainer {
+    border-left: 1px solid rgb( 222, 222, 222);
     padding-left:1.8rem;
-    max-width: 25%;
+    max-width: 20%;
+}
+
+.mobileNavbar{
+    position:fixed;
+    bottom:0;
+    left: 0;
+    width: 100vw;
+    height:6vh;
+    display: none;
+    justify-content: space-around;
+    background: white;
+    align-items: center;
+}
+
+.singleNavItemHolder_mobileView{
+
+}
+
+.mobileNavbar svg{
+    height: 1.6rem;
+    width:1.6rem;
+}
+
+
+
+@media only screen and (max-width:600px){
+.homeContainer_extraContainer{
+    display:none;
+}
+.homeContainer{
+    display: block;
+}
+
+.homeContainer_leftBar{
+    display: none;
+}
+
+.mobileNavbar{
+    display: flex;
+}
+.homeContainer_feedContainer{
+    padding-bottom: 8vh;
+}
 }

@@ -8,11 +8,11 @@
 
 
 .cardContainer {
-    height: 80vh;
+    height: 60vh;
     display: flex;
     border-radius: 10px;
     overflow: hidden;
-    width: 80vw;
+    width: 70vw;
     background: white;
     box-shadow: 10px 10px 15px rgb(173, 173, 173);
 }
@@ -83,4 +83,14 @@
     flex-direction: column;
     gap: 1.2rem;
     padding-inline: 1.2rem;
+}
+
+@media screen and (max-width:600px){
+    .cardContainer{
+        flex-direction: column;
+        height: 75vh;
+    }
+    .container{
+        height: 80svh;
+    }
 }

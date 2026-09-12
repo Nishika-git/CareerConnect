@@ -16,14 +16,13 @@ export default function Home() {
         <div className={styles.mainContainer}>
           <div className={styles.mainContainer_left}>
             <p>Connect with friends without exaggeration</p>
-            <p>A true social media platform , with no stories no bluffs !</p>
+            <p>A true social media platform , with no stories no bluffs!</p>
 
             <div onClick={() => {
               router.push("/login")
             }} className={styles.buttonJoin}>
               <p>Join now!</p>
             </div>
-
           </div>
           <div className={styles.mainContainer_right}>
             <img src="images/logo.jpg" alt="" />
