@@ -5,6 +5,9 @@
     border-radius: 10px;
     gap: 1.2rem;
     flex-wrap: wrap;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 .backDropContainer {
@@ -34,20 +37,20 @@
 }
 
 .profileContainer_details input {
-    outline:none;
+    outline: none;
     border-style: none;
     background: rgb(252, 248, 248);
     padding-bottom: 9px;
-    width:fit-content;
+    width: fit-content;
 }
 
-.nameEdit{
+.nameEdit {
     font-size: 1.8rem;
     font-weight: bold;
 }
 
 .updateProfileBtn {
-    width:fit-content;
+    width: fit-content;
     padding-inline: 0.4rem;
     padding-block: 0.3rem;
     background: rgba(3, 93, 183, 0.905);
@@ -63,7 +66,7 @@
     border: none;
     background: rgb(246, 239, 239);
     padding-inline: 10px;
-    padding-block:9px;
+    padding-block: 9px;
     font-family: "Poppins" !important;
     font: size 1.1rem;
 }
@@ -80,7 +83,7 @@
     width: 100%;
 }
 
-.card_profileContainer > div {
+.card_profileContainer>div {
     width: 100%;
     max-width: 650px;
 }
@@ -112,9 +115,9 @@
     z-index: 4;
     transition: all 0.4s;
     cursor: pointer;
-    color:white;
-    opacity:0.0;
-    display:flex;
+    color: white;
+    opacity: 0.0;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -147,7 +150,7 @@
     cursor: pointer;
 }
 
-.workHistory{
+.workHistory {
     padding-left: 1rem;
 }
 
@@ -167,7 +170,7 @@
     box-shadow: 10px 10px 15px rgb(173, 173, 173);
 }
 
-.addWorkButton{
+.addWorkButton {
     padding-inline: 1.3rem;
     background: white;
     border: 1px dotted silver;
@@ -176,7 +179,7 @@
     padding-block: 1rem;
 }
 
-.education{
+.education {
     padding-left: 1rem;
 }
 
@@ -196,7 +199,7 @@
     box-shadow: 10px 10px 15px rgb(173, 173, 173);
 }
 
-.addEducation{
+.addEducation {
     padding-inline: 1.3rem;
     background: white;
     border: 1px dotted silver;
@@ -212,7 +215,7 @@
     top: 0;
     left: 0;
     z-index: 5;
-    background: rgb(0, 0, 0, 0, 7);
+    background: rgba(0, 0, 0, 0, 7);
     overflow: hidden;
     justify-content: center;
     display: flex;
@@ -228,15 +231,46 @@
     padding: 1.4rem;
     display: flex;
     flex-direction: column;
-    gap:1.2rem;
+    gap: 1.2rem;
 }
 
 
-.inputField{
+.inputField {
     padding-inline: 1.8rem;
-    padding-block:0.6rem;
-    outline:none;
+    padding-block: 0.6rem;
+    outline: none;
     border-radius: 10px;
     border: 1px solid silver;
-    width:100%;
+    width: 100%;
+}
+
+@media screen and (max-width:600px) {
+    @media screen and (max-width: 600px) {
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            border-radius: 0;
+            padding-bottom: 5rem;
+        }
+
+        .profileContainer_details {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .workHistory,
+        .education {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .profileContainer_details textarea {
+            max-width: 100%;
+            padding-inline: 2px;
+            padding-block: 5px;
+        }
+        .profileContainer_details input{
+            width:60%;
+        }
+    }
 }
