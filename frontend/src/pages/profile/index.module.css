@@ -269,8 +269,45 @@
             padding-inline: 2px;
             padding-block: 5px;
         }
-        .profileContainer_details input{
-            width:60%;
+
+        .profileContainer_details input {
+            width: 60%;
+        }
+
+        .postImage {
+            width: 80%;
+            max-width: 500px;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .workHistoryContainer {
+            display: flex;
+            padding-top: 1rem;
+            width: 85%;
+            flex-wrap: wrap;
+        }
+
+        .workHistoryCard {
+            min-width: fit-content;
+            padding-inline: 0.8rem;
+            padding-block: 0.2rem;
+            border-radius: 10px;
+            box-shadow: 10px 10px 15px rgb(173, 173, 173);
+        }
+
+        .educationCard {
+            padding-inline: 1rem;
+            padding-block: 0.3rem;
+        }
+
+        .addWorkButton {
+            padding-inline: 1rem;
+            padding-block: 0.5rem;
+        }
+        .addEducation{
+            padding-inline: 1rem;
+            padding-block: 0.5rem;
         }
     }
 }
