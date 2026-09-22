@@ -8,5 +8,6 @@ export default function App({ Component, pageProps }) {
 
   <Component {...pageProps} />
   </Provider>
+  <script src="//code.tidio.co/wd288mi9e4oxinp2nnnm7uiqd27vtmmp.js" async></script>
   </> 
 }
