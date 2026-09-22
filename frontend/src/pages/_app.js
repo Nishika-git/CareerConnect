@@ -8,6 +8,7 @@ export default function App({ Component, pageProps }) {
 
   <Component {...pageProps} />
   </Provider>
-  
+  <script src="https://cdn.botpress.cloud/webchat/v5.0/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2026/09/22/16/20260922160643-6CEGYSE3.js" defer></script>
   </> 
 }
